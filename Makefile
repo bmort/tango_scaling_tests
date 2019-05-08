@@ -32,13 +32,15 @@ TANGO_DB_ID:=$(shell docker ps -f name=tango_database -f status=running -q)
 EMPTY:=
 IMAGES:=$(shell docker images --format '{{.Repository}}:{{.Tag}}' | grep $(IMAGE):latest)
 DEV_CONTAINER:=$(shell docker ps -f name=tango_dev_prompt -q)
+IMAGES:=$(strip $(IMAGES))
 
-ifeq ($(stip $(IMAGES)),$(EMPTY))
+
+ifeq ($(IMAGES),$(EMPTY))
 	IMAGE_EXISTS = 0
 else
 	IMAGE_EXISTS = 1
 endif
-ifeq ($(stip $(TANGO_DB_ID)),)
+ifeq ($(strip $(TANGO_DB_ID)),)
 	TANGO_DB_EXISTS = 0
 else
 	TANGO_DB_EXISTS = 1
@@ -63,6 +65,7 @@ help:
 prompt:
 ifeq ($(IMAGE_EXISTS),0)
 	@echo "$(CRED)ERROR: Image '$(IMAGE):latest' not found!$(CEND)"
+	@echo "$(IMAGES)"
 endif
 ifeq ($(TANGO_DB_EXISTS),0)
 	@echo "$(CRED)ERROR: Unable to start prompt, tango_database containernot found!$(CEND)"

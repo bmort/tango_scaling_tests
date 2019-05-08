@@ -23,6 +23,7 @@ services:
       placement:
         constraints:
           - node.role == manager
+
   tango_mysql:
     image: skasip/tango_mysql:1.0.3
     container_name: tango_mysql

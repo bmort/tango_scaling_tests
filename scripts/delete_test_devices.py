@@ -16,6 +16,9 @@ def delete_devices():
     # for index in range(num_devices):
     #     name = 'low_sdp/elt/test_device_{:05d}'.format(index)
 
+    # db.delete_server('TestDevice/test1')
+    # db.delete_device('tango/test1/000')
+
 
 def delete_server():
     """."""
