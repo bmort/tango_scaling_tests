@@ -21,10 +21,10 @@ def register():
     device_info._class = 'TestDevice1'
     db.add_device(device_info)
 
-    device_info.server = 'TestDeviceServer/1'
-    device_info.name = 'test/test_device/1'
-    device_info._class = 'TestDevice2'
-    db.add_device(device_info)
+    # device_info.server = 'TestDeviceServer/1'
+    # device_info.name = 'test/test_device/1'
+    # device_info._class = 'TestDevice2'
+    # db.add_device(device_info)
 
 
 def register_devices():
